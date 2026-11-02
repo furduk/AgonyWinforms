@@ -75,16 +75,14 @@ namespace AgonyWinforms
                             break;
                     case "jmp>":
                         string targetFlag = line.Remove(0, 5).Trim();
-                        // Ищем строку, которая начинается с "flag targetFlag"
                         for (int j = 0; j < lines.Length; j++)
                         {
                             if (lines[j].Trim().StartsWith("flag " + targetFlag))
                             {
-                                i = j; // Устанавливаем индекс на найденный флаг
-                                goto end_of_line; // Выходим из свитча
+                                i = j;
+                                goto end_of_line;
                             }
                         }
-                        // Если флаг не найден — выдаем ошибку (или просто игнорируем)
                         output.Append("ERROR: Flag " + targetFlag + " not found\n");
                         break;
                     case "msg>":
@@ -94,9 +92,7 @@ namespace AgonyWinforms
                         MessageBox.Show(msgText,msgcaption,MessageBoxButtons.OK);
                         break;
                     case "flag":
-                        // Просто ничего не делаем, это чисто метка для jmp>
                         break;
-                        // будем проверять переменную с переменной
                         case "ifvv": // IF Var Var
                         string[] ifCon = line.Remove(0, 5).Split(' ');
                         if (ifCon[0] == "sstr")
@@ -112,9 +108,6 @@ namespace AgonyWinforms
                         }
                         else if (ifCon[0] == "sint")
                         {
-                            // meme:
-                            // кто-то - Сука, просто сделай switch!
-                            // я - хи-хи лесенки из else if
                             if (ifCon[2] == "==")
                             {
                                 if (varInt[ifCon[1]] == varInt[ifCon[3]]) { ifTrue = -9223372036854775808; } else { ifTrue = 9223372036854775807; }
@@ -142,19 +135,18 @@ namespace AgonyWinforms
                         }
                         break;
                     case "tcon":
-                        // Если true (то есть наш long равен -9223372036854775808)
                         if (ifTrue == -9223372036854775808)
                         {
-                            if (line.Length > 5) // Если после tcon что-то есть
+                            if (line.Length > 5)
                             {
-                                line = line.Substring(5); // Отрезаем "tcon " (5 символов)
-                                goto retry_label; // ПРЫЖОК! Обрабатываем остаток строки как новую команду
+                                line = line.Substring(5);
+                                goto retry_label;
                             }
                         }
-                        // Если false, мы просто ничего не делаем, и цикл идет дальше
+                        
                         break;
                     case "fcon":
-                        if (ifTrue == 9223372036854775807) // Если FALSE
+                        if (ifTrue == 9223372036854775807)
                         {
                             if (line.Length > 5)
                             {
