@@ -116,3 +116,6 @@ fcon prt> Wrong, try again!
 fcon nl<>
 fcon jmp> start
 flag end
+
+## License
+MIT. Do what you want.
