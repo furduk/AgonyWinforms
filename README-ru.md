@@ -2,6 +2,8 @@
 
 [English version](README.md) | **Русская версия**
 
+![AgonyScript screenshot](screenshot.png)
+
 **AGONYSCRIPT** — это шуточный мини-интерпретатор. Это **не** production-ready язык.
 Код специально местами странный, потому что в этом и смысл.
 

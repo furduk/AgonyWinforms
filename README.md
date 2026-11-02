@@ -1,5 +1,8 @@
 # AgonyScript
-[Русская версия](README-ru.md)
+[Русская версия](README-ru.md) | **English version**
+
+![AgonyScript screenshot](screenshot.png)
+
 **AgonyScript** is a joke mini-interpreter for WinForms.
 It is **not** a production-ready language. The code is deliberately
 weird in places — that's the point.
