@@ -115,3 +115,6 @@ fcon prt> Не угадал, попробуй еще!
 fcon nl<>
 fcon jmp> start
 flag end
+
+## Лицензия
+MIT. Делайте что хотите.
